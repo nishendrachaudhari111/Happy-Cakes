@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create/Update Product</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Create/Update Product</h1>
+		<form th:object="${product}" th:action="@{/save/product}"
+			method="post" enctype="multipart/form-data">
+			<!-- Product Name -->
+			<div class="mb-3">
+				<label for="productName" class="form-label">productName:</label> <input
+					type="text" class="form-control" id="productName"
+					th:field="*{productName}" required>
+			</div>
+
+			<!-- Product Description -->
+			<div class="mb-3">
+				<label for="productDesc" class="form-label">productDesc:</label>
+				<textarea class="form-control" id="productDesc"
+					th:field="*{productDesc}" required></textarea>
+			</div>
+
+			<!-- Product MRP -->
+			<div class="mb-3">
+				<label for="productMRP" class="form-label">productMRP:</label> <input
+					type="number" class="form-control" id="productMRP"
+					th:field="*{productMRP}" required>
+			</div>
+
+			<!-- Product Manufacturing Date -->
+			<div class="mb-3">
+				<label for="productMFD" class="form-label">productMFD:</label> <input
+					type="date" class="form-control" id="productMFD"
+					th:field="*{productMFD}" required>
+			</div>
+
+
+			<div class="mb-3">
+				<label for="productExpiryDate" class="form-label">productExpiryDate:</label>
+				<input type="date" class="form-control" id="productExpiryDate"
+					th:field="*{productExpiryDate}" required>
+			</div>
+
+			<!-- Product Model -->
+			<div class="mb-3">
+				<label for="productModel" class="form-label">productModel:</label> <input
+					type="text" class="form-control" id="productModel"
+					th:field="*{productModel}" required>
+			</div>
+
+			<!-- Product Image -->
+			<div class="mb-3">
+
+				<label for="imageFile">Upload your image:</label> 
+				<input type="file" id="imageFile" name="imageFile" class="form-control-file">
+			</div>
+			<!-- Submit Button -->
+			<button type="submit" class="btn btn-primary">Save Product</button>
+		</form>
+	</div>
+</body>
+</html>
